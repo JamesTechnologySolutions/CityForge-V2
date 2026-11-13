@@ -3,15 +3,17 @@ name: Windows Desktop Build
 on:
   workflow_dispatch:
   push:
-    branches: [main, "development/**"]
+    branches:
+      - main
+      - "development/**"
+    tags:
+      - "v*"
     paths:
       - "main.js"
       - "package.json"
       - "src/**"
       - ".github/workflows/build-v2.yml"
-  push:
-    tags:
-      - "v*"
+      - "docs/**"
 
 permissions:
   contents: write
