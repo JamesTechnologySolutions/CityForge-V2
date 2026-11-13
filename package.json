@@ -1,49 +1,76 @@
 {
   "name": "cityforge",
-  "version": "0.2.0",
-  "description": "A free, unlimited city-building game for Windows",
+  "version": "1.0.0",
+  "description": "A 3D city-building simulation by James Technology Solutions",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win",
+    "dist": "electron-builder --win nsis portable --publish never",
     "test": "node --check main.js && node --input-type=module --check < src/game3d.js"
   },
   "license": "MIT",
+  "dependencies": {
+    "three": "^0.180.0"
+  },
   "devDependencies": {
     "electron": "^33.2.0",
     "electron-builder": "^25.1.8"
   },
   "build": {
-    "appId": "com.cityforge.game",
-    "productName": "Cityforge",
-    "copyright": "Cityforge",
+    "appId": "com.jamestechnologysolutions.cityforge",
+    "productName": "CityForge",
+    "copyright": "Copyright © 2026 James Technology Solutions",
+    "asar": true,
     "files": [
       "main.js",
-      "src/**/*"
+      "src/**/*",
+      "node_modules/three/**/*",
+      "icon.ico",
+      "logo.png",
+      "license.txt",
+      "installer.nsh",
+      "installerSidebar.bmp"
     ],
+    "directories": {
+      "output": "dist"
+    },
     "win": {
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
       ],
-      "icon": "build/icon.ico"
+      "icon": "icon.ico",
+      "artifactName": "CityForge-${version}-${arch}.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "license": "build/license.txt",
-      "installerIcon": "build/icon.ico",
-      "uninstallerIcon": "build/icon.ico",
-      "installerHeaderIcon": "build/icon.ico",
-      "installerSidebar": "build/installerSidebar.bmp",
-      "uninstallerSidebar": "build/installerSidebar.bmp",
-      "createDesktopShortcut": "always",
+      "license": "license.txt",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "installerSidebar": "installerSidebar.bmp",
+      "uninstallerSidebar": "installerSidebar.bmp",
+      "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Cityforge",
+      "shortcutName": "CityForge",
       "runAfterFinish": true,
       "deleteAppDataOnUninstall": false,
-      "include": "build/installer.nsh",
-      "artifactName": "Cityforge-Setup-${version}.${ext}"
+      "include": "installer.nsh"
+    },
+    "portable": {
+      "artifactName": "CityForge-${version}-Portable.${ext}"
     }
   }
 }
