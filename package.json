@@ -1,15 +1,53 @@
 {
   "name": "cityforge",
-  "version": "0.2.0",
-  "description": "A free, unlimited city-building game for Windows",
+  "version": "0.3.0",
+  "description": "A 3D city-building and urban simulation game for Windows",
   "main": "main.js",
-  "scripts": { "start": "electron .", "dist": "electron-builder --win" },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64 --publish never",
+    "dist:installer": "electron-builder --win nsis --x64 --publish never",
+    "dist:portable": "electron-builder --win portable --x64 --publish never"
+  },
   "license": "MIT",
-  "devDependencies": { "electron": "^33.2.0", "electron-builder": "^25.1.8" },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
   "build": {
-    "appId": "com.cityforge.game",
-    "productName": "Cityforge",
-    "files": ["main.js", "src/**/*"],
-    "win": { "target": ["nsis", "portable"] }
+    "appId": "com.jamestechnologysolutions.cityforge",
+    "productName": "CityForge",
+    "asar": true,
+    "files": [
+      "main.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "CityForge-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CityForge"
+    }
   }
 }
