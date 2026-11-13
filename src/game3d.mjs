@@ -90,7 +90,6 @@ function simulate(){state.day++;refreshCoverage();let pop=0,jobs=0,weighted=0,ho
    else jobs+=t.level*(t.k==='com'?8:10);}
   }
  }
- }
  const happiness=homes?weighted/homes:55;const resDemand=Math.max(-100,Math.min(100,(jobs*.85+30-pop)/(jobs*.85+pop+30)*100+(happiness-50)*.6));const comDemand=Math.max(-100,Math.min(100,(pop*.9+20-jobs)/(pop*.9+jobs+20)*100));const indDemand=Math.max(-100,Math.min(100,(pop*.6+30-jobs)/(pop*.6+jobs+30)*100));
  state.pop=pop;state.jobs=jobs;state.happy=happiness;state.demand={res:resDemand,com:comDemand,ind:indDemand};
  for(const t of tiles){if(!['res','com','ind'].includes(t.k))continue;const powered=state.coverage.power.has(idx(t.x,t.z))&&nearRoad(t);if(powered&&t.level<3&&Math.random()<(.035+Math.max(0,state.demand[t.k])/1200)) {t.level++;refreshWorldTile(t);}else if(!powered&&t.level>0&&Math.random()<.025){t.level--;refreshWorldTile(t);}}
