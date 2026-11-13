@@ -1,38 +1,53 @@
-name: Build v2 Windows exe
+name: Windows Desktop Build
 
 on:
   workflow_dispatch:
   push:
-    tags: ['v2.*']
-    paths: ['v2/**', '.github/workflows/build-v2.yml']
+    branches: [main, "development/**"]
+    paths:
+      - "main.js"
+      - "package.json"
+      - "src/**"
+      - ".github/workflows/build-v2.yml"
+  push:
+    tags:
+      - "v*"
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-windows:
     runs-on: windows-latest
-    defaults:
-      run:
-        working-directory: v2
     env:
-      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      CSC_IDENTITY_AUTO_DISCOVERY: "false"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
+
       - name: Install dependencies
-        run: npm install
-      - name: Build installer and portable exe
-        run: npx electron-builder --win --publish never
-      - name: Upload build
+        run: npm install --no-audit --no-fund
+
+      - name: Build Windows installer and portable executable
+        run: npm run dist
+
+      - name: Upload Windows builds
         uses: actions/upload-artifact@v4
         with:
-          name: cityforge-v2-windows
-          path: v2/dist/*.exe
-      - name: Publish release
-        if: startsWith(github.ref, 'refs/tags/v2.')
+          name: CityForge-Windows-x64
+          path: dist/*.exe
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: v2/dist/*.exe
+          files: dist/*.exe
+          generate_release_notes: true
