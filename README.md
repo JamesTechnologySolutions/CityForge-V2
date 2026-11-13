@@ -1,42 +1,39 @@
-# Cityforge 2
+# CityForge
 
-A free, open, unlimited single-player city builder for Windows. Isometric graphics, zoning, utilities, public services, live traffic, disasters and synthesized sound.
+**A 3D city-building game by James Technology Solutions.**
 
-## Run
-```
+CityForge is a standalone Windows desktop city builder with a real-time 3D world, freely orbiting camera, terrain, roads, zoning, municipal services, a growing economy, and local city saves.
+
+## Run from source
+Requires Node.js 20 or newer.
+\`\`\`bash
 npm install
 npm start
-```
-## Build the Windows installer and portable .exe
-```
+\`\`\`
+
+## Build Windows applications
+\`\`\`bash
+npm install
+npm test
 npm run dist
-```
-Output appears in `dist/`.
-
-## Put it on GitHub
-```
-git init && git add . && git commit -m "Cityforge 2"
-git branch -M main
-git remote add origin https://github.com/YOURNAME/cityforge.git
-git push -u origin main
-```
-
-## What is in version 2
-- Services with coverage radius: power plant, solar farm, water tower, police, fire station, clinic, hospital, school, park
-- Layers: power, water, police, fire, health, traffic, happiness
-- Traffic: cars drive the road network and slow in congestion, which hurts happiness and growth
-- Disasters: fires that spread unless a fire station covers them, earthquakes, tornadoes. Toggle them or trigger one yourself
-- Sound: built from the Web Audio API, no files needed. Toggle in Settings
-- Building art: three styles per zone and a distinct look for each level and service
+\`\`\`
+The \`dist\` folder contains the Windows NSIS installer and portable executable. GitHub Actions builds both on Windows and publishes them as a workflow artifact.
 
 ## Controls
-Left-drag builds, right-drag pans, wheel zooms, WASD or arrows move, Space pauses, 1/2/3 set speed, Esc clears the tool.
+- Left-click a tile to place the selected building or zone.
+- Right-drag to orbit the camera; middle-drag to pan.
+- Mouse wheel zooms; WASD or arrow keys move the view; Q/E rotate.
+- Space pauses simulation. Select 1×, 2× or 4× to change simulation speed.
+- Use Save / Load to manage the local city. Autosave runs every in-game month.
 
-## Structure
-- `main.js` Electron window
-- `src/index.html`, `src/style.css` interface
-- `src/game.js` terrain, simulation, rendering, input
-- `src/extras.js` audio, traffic, disasters, layers, building art
+## Gameplay
+Lay roads, establish residential, commercial and industrial zones, and supply electricity. Expand water, education, healthcare, parks, police and fire coverage to improve growth and happiness. Balance tax revenue against service upkeep. Disasters can be disabled in settings or triggered manually.
 
-## Roadmap
-Pollution, rail and transit, sewage, budgets per department, scenarios, more art, multiple saves.
+## Data and privacy
+Cities are saved locally in the application's browser storage. The game makes no network requests during play. No account or online service is required.
+
+## Attribution
+Made by **James Technology Solutions (JTS)**. CityForge is an independent project and is not affiliated with other city simulation games.
+
+## Current scope
+This release is a playable 3D city-builder foundation with functioning construction, camera, zoning growth, service coverage, treasury, taxation, disasters, and local persistence. It is not represented as a complete simulation of every system in larger commercial city-building games; advanced transport networks, pedestrians, detailed utilities, terrain sculpting, scenarios, and mod support remain future expansion areas.
