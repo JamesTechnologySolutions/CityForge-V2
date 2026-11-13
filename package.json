@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder --win nsis portable --publish never",
-    "test": "node --check main.js && node --input-type=module --check < src/game3d.js"
+    "test": "node --check main.js && node --check src/game3d.mjs"
   },
   "license": "MIT",
   "dependencies": {
