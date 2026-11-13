@@ -1,45 +1,4 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>Cityforge 2</title>
-<link rel="stylesheet" href="style.css"></head>
-<body>
-<canvas id="c"></canvas>
-<header id="top">
-  <span class="brand">Cityforge 2</span>
-  <div class="stat"><small>City</small><input id="cname" value="Newtown" maxlength="24"></div>
-  <div class="stat"><small>Rank</small><b id="rank">Hamlet</b></div>
-  <div class="stat"><small>Funds</small><b id="money"></b></div>
-  <div class="stat"><small>Date</small><b id="date"></b></div>
-  <div class="stat"><small>Population</small><b id="pop">0</b></div>
-  <div class="stat"><small>Jobs</small><b id="jobs">0</b></div>
-  <div class="stat"><small>Happiness</small><b id="happy">50%</b></div>
-  <div class="ctl">
-    <button class="sp" data-s="0" title="Pause (Space)">Pause</button>
-    <button class="sp" data-s="1">1x</button><button class="sp" data-s="2">2x</button><button class="sp" data-s="3">3x</button>
-    <button id="save">Save</button><button id="load">Load</button><button id="new">New city</button>
-  </div>
-</header>
-<aside id="tools" class="panel"></aside>
-<aside id="side" class="panel">
-  <h3>Demand</h3>
-  <div class="dm"><span>Residential</span><i><u id="d_r" style="background:#58b86f"></u></i></div>
-  <div class="dm"><span>Commercial</span><i><u id="d_c" style="background:#4f93e0"></u></i></div>
-  <div class="dm"><span>Industrial</span><i><u id="d_i" style="background:#e0a93f"></u></i></div>
-  <h3>Budget</h3>
-  <label>Tax rate <b id="taxv">9%</b></label>
-  <input id="tax" type="range" min="0" max="20" value="9">
-  <div class="row"><span>Income</span><b id="inc"></b></div>
-  <div class="row"><span>Upkeep</span><b id="exp"></b></div>
-  <div class="row"><span>Net per day</span><b id="net"></b></div>
-  <h3>Layers</h3>
-  <div class="layers" id="layers"></div>
-  <h3>Settings</h3>
-  <label class="chk"><input type="checkbox" id="dis" checked> Disasters</label>
-  <label class="chk"><input type="checkbox" id="snd" checked> Sound</label>
-  <button id="boom" style="width:100%;margin-top:6px">Trigger a disaster</button>
-  <p class="hint">Left-drag builds, right-drag pans, wheel zooms, WASD moves. Zones need a road and power. Water towers unlock level 3. Fire stations stop fires from spreading.</p>
-</aside>
-<div id="toast"></div>
-<footer id="info">Pick a tool and start with a road.</footer>
-<script src="extras.js"></script>
-<script src="game.js"></script>
-</body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';"><title>CityForge</title><link rel="stylesheet" href="style.css"></head><body><canvas id="world"></canvas>
+<header class="topbar"><div class="brand"><span class="mark">CF</span><span>CITYFORGE<small>JAMES TECHNOLOGY SOLUTIONS</small></span></div><label class="city">CITY NAME<input id="cityName" maxlength="28" value="Newhaven"></label><div class="stats"><div><small>TREASURY</small><b id="funds">$25,000</b></div><div><small>POPULATION</small><b id="population">0</b></div><div><small>JOBS</small><b id="jobs">0</b></div><div><small>HAPPINESS</small><b id="happiness">76%</b></div><div><small>CALENDAR</small><b id="date">Year 1 · Day 1</b></div></div><div class="top-actions"><button id="pause">Ⅱ Pause</button><button id="speed">1× Speed</button></div></header>
+<aside class="build-panel"><div class="panel-title">CITY CONSTRUCTION<small>BUILD YOUR WORLD</small></div><div class="group-label">TRANSPORTATION</div><button class="tool active" data-tool="road"><i class="swatch road"></i><span>Road</span><kbd>$35</kbd></button><div class="group-label">ZONING</div><button class="tool" data-tool="res"><i class="swatch res"></i><span>Residential</span><kbd>$120</kbd></button><button class="tool" data-tool="com"><i class="swatch com"></i><span>Commercial</span><kbd>$160</kbd></button><button class="tool" data-tool="ind"><i class="swatch ind"></i><span>Industrial</span><kbd>$140</kbd></button><div class="group-label">LANDSCAPING</div><button class="tool" data-tool="park"><i class="swatch park"></i><span>City park</span><kbd>$90</kbd></button><div class="panel-note">Select a tool, then click a tile to build. Right-drag to orbit. Scroll to zoom. WASD to move.</div></aside>
+<aside class="right-panel"><div class="panel-title">WORLD VIEW<small>CAMERA CONTROLS</small></div><button id="zoomIn">＋ Zoom in</button><button id="zoomOut">－ Zoom out</button><button id="resetView">◎ Reset camera</button><div class="separator"></div><div class="panel-title">PERSPECTIVE<small>CHANGE HOW YOU PLAY</small></div><button data-mode="build" class="mode active">▦ City planner</button><button data-mode="walk" class="mode">♙ Walk the city</button><div class="separator"></div><div class="panel-title">CITY FILES</div><button id="save">⇩ Save city</button><button id="load">⇧ Load city</button><button id="new">＋ New world</button><div class="panel-note">Open-world construction prototype. More systems are being added in stages.</div></aside><div class="bottom-left"><span class="live-dot"></span> SIMULATION ONLINE <span class="divider">/</span> STYLIZED 3D WORLD</div><footer id="status">Build mode · ROAD selected</footer><div id="toast"></div><script type="module" src="engine.js"></script></body></html>

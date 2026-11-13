@@ -1,42 +1,56 @@
-# Cityforge 2
+# CityForge
 
-A free, open, unlimited single-player city builder for Windows. Isometric graphics, zoning, utilities, public services, live traffic, disasters and synthesized sound.
+**A 3D city-building and urban simulation game by James Technology Solutions (JTS).**
 
-## Run
-```
+CityForge is being developed as a Windows desktop game focused on deep city construction, believable urban simulation, and immersive 3D exploration.
+
+## Development status
+
+The `development/3d-foundation` branch now contains the first playable stylized 3D foundation: Three.js rendering, a large open terrain plane, procedural trees and buildings, road placement, residential/commercial/industrial lots, parks, camera orbit/zoom, planner and walk perspectives, a basic city economy, and local save/load. This is an early engine slice, not a finished city simulator; advanced traffic, utilities, services, terrain sculpting, detailed pedestrian simulation, and driving remain planned.
+
+## Run locally
+
+Requirements: Node.js 22 or newer and Windows (for Windows packaging).
+
+```powershell
 npm install
 npm start
 ```
-## Build the Windows installer and portable .exe
-```
+
+## Build Windows executables
+
+```powershell
 npm run dist
 ```
-Output appears in `dist/`.
 
-## Put it on GitHub
+This creates:
+- NSIS Windows installer
+- Portable Windows executable
+
+Build output: `dist/\`
+
+Individual targets:
+
+```powershell
+npm run dist:installer
+npm run dist:portable
 ```
-git init && git add . && git commit -m "Cityforge 2"
-git branch -M main
-git remote add origin https://github.com/YOURNAME/cityforge.git
-git push -u origin main
-```
 
-## What is in version 2
-- Services with coverage radius: power plant, solar farm, water tower, police, fire station, clinic, hospital, school, park
-- Layers: power, water, police, fire, health, traffic, happiness
-- Traffic: cars drive the road network and slow in congestion, which hurts happiness and growth
-- Disasters: fires that spread unless a fire station covers them, earthquakes, tornadoes. Toggle them or trigger one yourself
-- Sound: built from the Web Audio API, no files needed. Toggle in Settings
-- Building art: three styles per zone and a distinct look for each level and service
+## Project structure
 
-## Controls
-Left-drag builds, right-drag pans, wheel zooms, WASD or arrows move, Space pauses, 1/2/3 set speed, Esc clears the tool.
-
-## Structure
-- `main.js` Electron window
-- `src/index.html`, `src/style.css` interface
-- `src/game.js` terrain, simulation, rendering, input
-- `src/extras.js` audio, traffic, disasters, layers, building art
+- `main.js` — Electron main process
+- `src/index.html` — game shell
+- `src/style.css` — interface styling
+- `src/game.js` — current prototype simulation and rendering
+- `src/extras.js` — current prototype traffic, disasters, audio, and visual extras
 
 ## Roadmap
-Pollution, rail and transit, sewage, budgets per department, scenarios, more art, multiple saves.
+
+See [docs/3D-ROADMAP.md](docs/3D-ROADMAP.md) for the planned engine architecture, gameplay systems, milestones, and quality gates.
+
+## Project identity
+
+Product: **CityForge**  
+Publisher: **Made by James Technology Solutions (JTS)**
+
+CityRT is used only as a functional reference point. CityForge will have its own implementation, game identity, assets, interface, and creative direction.
