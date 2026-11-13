@@ -1,0 +1,30 @@
+CITYFORGE END USER LICENSE AGREEMENT
+
+Please read this agreement carefully before installing or using Cityforge ("the Software").
+By selecting "I accept the terms of the License Agreement" and continuing, you agree to be bound by these terms. If you do not agree, select "I do not accept" or click Cancel. The Software will not be installed.
+
+1. LICENSE
+The developer grants you a personal, non-exclusive, non-transferable, royalty-free license to install and use the Software on devices that you own or control, for personal, non-commercial entertainment.
+
+2. RESTRICTIONS
+You may not sell, rent, or sublicense the Software; remove copyright or license notices; or use the Software for any unlawful purpose.
+
+3. YOUR CITIES
+Cities and save data you create belong to you and are stored locally on your computer. The Software does not collect or transmit personal information.
+
+4. NO WARRANTY
+The Software is provided "as is" without warranty of any kind, express or implied, including fitness for a particular purpose and non-infringement. You use it at your own risk.
+
+5. LIMITATION OF LIABILITY
+To the fullest extent permitted by law, the developer is not liable for any indirect, incidental, special, or consequential damages, or for loss of data, arising from your use of the Software.
+
+6. TERMINATION
+This license ends automatically if you break these terms. You may end it at any time by uninstalling the Software and deleting all copies.
+
+7. CHANGES
+The developer may update this agreement for future versions. Continued use of an updated version means you accept the updated terms.
+
+8. GENERAL
+If any part of this agreement is found unenforceable, the rest remains in effect.
+
+Cityforge is an original game and is not affiliated with or endorsed by any other city-building game or service.
