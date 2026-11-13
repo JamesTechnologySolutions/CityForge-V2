@@ -6,7 +6,7 @@ CityForge is being developed as a Windows desktop game focused on deep city cons
 
 ## Development status
 
-The current mainline prototype is an isometric 2D proof of concept. The `development/3d-foundation` branch begins the transition to a modular 3D architecture. The full 3D feature set is a roadmap, not a claim that all systems are already implemented.
+The `development/3d-foundation` branch now contains the first playable stylized 3D foundation: Three.js rendering, a large open terrain plane, procedural trees and buildings, road placement, residential/commercial/industrial lots, parks, camera orbit/zoom, planner and walk perspectives, a basic city economy, and local save/load. This is an early engine slice, not a finished city simulator; advanced traffic, utilities, services, terrain sculpting, detailed pedestrian simulation, and driving remain planned.
 
 ## Run locally
 
