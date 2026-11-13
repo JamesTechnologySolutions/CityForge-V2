@@ -23,7 +23,9 @@
     "asar": true,
     "files": [
       "main.js",
-      "src/**/*",
+      "src/index.html",
+      "src/style.css",
+      "src/game3d.mjs",
       "node_modules/three/**/*",
       "icon.ico",
       "logo.png",
