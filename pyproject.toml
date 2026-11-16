@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cityforge"
+version = "0.3.0"
+description = "A free, unlimited city-building game - Python rewrite of Cityforge 2"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+    "pygame-ce>=2.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.4",
+]
+web = [
+    "pywebview>=4.0",
+]
+cpp = [
+    "pybind11>=2.11",
+    "cmake>=3.28",
+]
+
+[project.scripts]
+cityforge = "cityforge.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cityforge 2 - Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="top">
+      <span class="brand">Cityforge 2</span>
+      <div class="stat"><small>City</small><input id="cname" value="Newtown" maxlength="24" /></div>
+      <div class="stat"><small>Rank</small><b id="rank">Hamlet</b></div>
+      <div class="stat"><small>Funds</small><b id="money"></b></div>
+      <div class="stat"><small>Date</small><b id="date"></b></div>
+      <div class="stat"><small>Population</small><b id="pop">0</b></div>
+      <div class="stat"><small>Jobs</small><b id="jobs">0</b></div>
+      <div class="stat"><small>Happiness</small><b id="happy">50%</b></div>
+      <div class="ctl">
+        <button id="save">Save</button>
+        <button id="load">Load</button>
+        <button id="new">New</button>
+        <button id="boom">Trigger a disaster</button>
+      </div>
+    </header>
+    <aside id="tools"></aside>
+    <aside id="side">
+      <h3>Demand</h3>
+      <div class="dm"><span>Residential</span><i><u id="d_r"></u></i></div>
+      <div class="dm"><span>Commercial</span><i><u id="d_c"></u></i></div>
+      <div class="dm"><span>Industrial</span><i><u id="d_i"></u></i></div>
+      <h3>Budget</h3>
+      <label>Tax rate <b id="taxv">9%</b></label>
+      <input id="tax" type="range" min="0" max="20" value="9" />
+      <div class="row"><span>Income</span><b id="inc"></b></div>
+      <div class="row"><span>Upkeep</span><b id="exp"></b></div>
+      <div class="row"><span>Net per day</span><b id="net"></b></div>
+      <h3>Layers</h3>
+      <div class="layers" id="layers"></div>
+      <h3>Settings</h3>
+      <label class="chk"><input type="checkbox" id="dis" checked /> Disasters</label>
+      <label class="chk"><input type="checkbox" id="snd" checked /> Sound</label>
+      <p class="hint">Left-drag builds, right-drag pans, wheel zooms, WASD moves. Zones need a road and power. Water towers unlock level 3. Fire stations stop fires from spreading.</p>
+    </aside>
+    <div id="toast"></div>
+    <footer id="info">Pick a tool and start with a road.</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

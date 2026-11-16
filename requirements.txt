@@ -1,0 +1,2 @@
+cityforge>=0.3.0
+pygame-ce>=2.5
